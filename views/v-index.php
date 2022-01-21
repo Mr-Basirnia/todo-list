@@ -60,22 +60,22 @@
                 <div class="side-wrapper">
                     <div class="side-title">پوشه ها</div>
                     <div class="side-menu">
-                        <a href="#">
-                            <svg viewBox="0 0 512 512" fill="currentColor">
-                                <path
-                                    d="M0 331v112.295a14.996 14.996 0 007.559 13.023L106 512V391L0 331zM136 391v121l105-60V331zM271 331v121l105 60V391zM406 391v121l98.441-55.682A14.995 14.995 0 00512 443.296V331l-106 60zM391 241l-115.754 57.876L391 365.026l116.754-66.15zM262.709 1.583a15.006 15.006 0 00-13.418 0L140.246 57.876 256 124.026l115.754-66.151L262.709 1.583zM136 90v124.955l105 52.5V150zM121 241L4.246 298.876 121 365.026l115.754-66.15zM271 150v117.455l105-52.5V90z" />
-                            </svg>
+                        <a href="<?= siteUrl() ?>">
+                            <i class="fas fa-folder-open"></i>
                             همه تسک ها
                         </a>
-                        <a href="#">
-                            <svg viewBox="0 0 512 512" fill="currentColor">
-                                <path
-                                    d="M352 0H64C28.704 0 0 28.704 0 64v320a16.02 16.02 0 009.216 14.496A16.232 16.232 0 0016 400c3.68 0 7.328-1.248 10.24-3.712L117.792 320H352c35.296 0 64-28.704 64-64V64c0-35.296-28.704-64-64-64z" />
-                                <path
-                                    d="M464 128h-16v128c0 52.928-43.072 96-96 96H129.376L128 353.152V400c0 26.464 21.536 48 48 48h234.368l75.616 60.512A16.158 16.158 0 00496 512c2.336 0 4.704-.544 6.944-1.6A15.968 15.968 0 00512 496V176c0-26.464-21.536-48-48-48z" />
-                            </svg>
-                            فولدر یک
-                        </a>
+                        <?php foreach ($folders as $folder) : ?>
+                        <div style="display: inline-flex;">
+                            <a
+                                href="<?= siteUrl("?folder_id={$folder->id}") ?>">
+                                <i class="fas fa-folder"></i>
+                                <?= $folder->name; ?>
+                            </a>
+                            <a href="<?= siteUrl("?delete_folder={$folder->id}") ?>"
+                                onclick="return confirm('مطمئن هستید میخواهید فولدر را حذف کنید ؟')"
+                                style="margin-right: auto;"><i class="fas fa-trash" style="margin: 0;"></i></a>
+                        </div>
+                        <?php endforeach; ?>
                         <a href="#">
                             <svg viewBox="0 0 512 512" fill="currentColor">
                                 <path

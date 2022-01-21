@@ -18,3 +18,4 @@ try {
 
 
 include_once PROJECT_PATH . "libs/lib-auth.php";
+include_once PROJECT_PATH . "libs/lib-folder.php";
