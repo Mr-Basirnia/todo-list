@@ -63,3 +63,13 @@ function isLogin() : bool
 {
     return isset($_SESSION['loginUser']) ? true : false;
 }
+
+/**
+ * get current login user id
+ *
+ * @return integer
+ */
+function getCurrentUserId() : int
+{
+    return isset($_SESSION['loginUser']) ? $_SESSION['loginUser']->id : 0;
+}
