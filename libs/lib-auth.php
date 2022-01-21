@@ -73,3 +73,13 @@ function getCurrentUserId() : int
 {
     return isset($_SESSION['loginUser']) ? $_SESSION['loginUser']->id : 0;
 }
+
+/**
+ * logout user
+ *
+ * @return void
+ */
+function logoutUser()
+{
+    unset($_SESSION['loginUser']);
+}
