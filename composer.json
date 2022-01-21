@@ -1,0 +1,14 @@
+{
+    "name": "mr-basirnia/todo-list",
+    "description": "This is todo list project",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mr-Basirnia",
+            "email": "mr.basirnia@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
