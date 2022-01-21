@@ -11,7 +11,7 @@ if (!isLogin()) {
     redirect(siteUrl('auth.php'));
 }
 
-
+$user = getLoginUserData();
 $folders = getFolders();
 
 include "views/v-index.php";

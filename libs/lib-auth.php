@@ -46,6 +46,9 @@ function loginUser($email, $password) : bool
     if (is_null($user)) {
         return false;
     }
+
+    $user->avatarImg = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email)));
+
     if (password_verify($password, $user->password)) {
         $_SESSION['loginUser'] = $user;
         return true;
@@ -72,6 +75,16 @@ function isLogin() : bool
 function getCurrentUserId() : int
 {
     return isset($_SESSION['loginUser']) ? $_SESSION['loginUser']->id : 0;
+}
+
+/**
+ * get login user data
+ *
+ * @return void
+ */
+function getLoginUserData()
+{
+    return $_SESSION['loginUser'] ?? null;
 }
 
 /**
