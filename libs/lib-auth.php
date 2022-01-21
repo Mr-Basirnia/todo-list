@@ -3,10 +3,10 @@
 /**
  * register user
  *
- * @param array $params
+ * @param [type] $params
  * @return boolean
  */
-function registerUser(array $params) : bool
+function registerUser($params) : bool
 {
     $params = (object) $params;
     $password = password_hash($params->password, PASSWORD_BCRYPT);
@@ -18,4 +18,48 @@ function registerUser(array $params) : bool
     $stmt->execute([$params->username,$params->email,$password]);
 
     return $stmt->rowCount() ? true : false;
+}
+
+function getUserByEmail($email)
+{
+    global $pdo;
+    
+    $query = "SELECT * FROM users WHERE email = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$email]);
+    $row = $stmt->fetch(PDO::FETCH_OBJ);
+
+    return $row ?? null;
+}
+
+/**
+ * get and check user login info
+ *
+ * @param [type] $email
+ * @param [type] $password
+ * @return boolean
+ */
+function loginUser($email, $password) : bool
+{
+    $user = getUserByEmail($email);
+
+    if (is_null($user)) {
+        return false;
+    }
+    if (password_verify($password, $user->password)) {
+        $_SESSION['loginUser'] = $user;
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * چک میکند که کاربر لاگین کرده است یا خیر
+ *
+ * @return boolean
+ */
+function isLogin() : bool
+{
+    return isset($_SESSION['loginUser']) ? true : false;
 }

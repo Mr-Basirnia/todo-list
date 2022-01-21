@@ -12,7 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<div style='color: #fff; background: blueviolet; text-align: center; padding: 10px;'>تبریک میگم با موفقیت ثبت نام شدید</div>";
         }
     } elseif ($action === 'login') {
-        return 2;
+        $result = loginUser($params['email'], $params['password']);
+        if ($result) {
+            redirect(siteUrl());
+        } else {
+            echo "<div style='color: #fff; background: red; text-align: center; padding: 10px;'>اطلاعات وارد شده صحیح نمی باشد</div>";
+        }
     }
 }
 

@@ -20,7 +20,19 @@ function showMsgAndDie($msg)
  * @param string $url
  * @return string
  */
-function siteUrl(string $url) : string
+function siteUrl(string $url = '') : string
 {
     return PROJECT_URL . $url;
+}
+
+/**
+ * redirect to $url
+ *
+ * @param [type] $url
+ * @return void
+ */
+function redirect($url)
+{
+    header("Location: $url");
+    die();
 }
