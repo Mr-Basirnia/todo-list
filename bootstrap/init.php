@@ -15,3 +15,6 @@ try {
 } catch (PDOException $e) {
     showMsgAndDie($e->getMessage());
 }
+
+
+include_once PROJECT_PATH . "libs/lib-auth.php";
