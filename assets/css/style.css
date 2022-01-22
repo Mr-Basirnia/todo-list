@@ -607,10 +607,11 @@ body.light-mode .video-bg:before {
   }
 }
 .status-circle {
-  width: 6px;
-  height: 6px;
-  background-color: #396df0;
-  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #f44336;
+  /* position: absolute; */
+  margin: 0 20px;
   border-radius: 50%;
   top: 4px;
   right: -20px;

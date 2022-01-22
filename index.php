@@ -17,5 +17,6 @@ if (isset($_GET['delete_folder']) && is_numeric($_GET['delete_folder'])) {
 
 $user = getLoginUserData();
 $folders = getFolders();
+$tasks = getTasks();
 
 include "views/v-index.php";
