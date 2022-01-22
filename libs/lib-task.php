@@ -25,3 +25,16 @@ function getTasks() : array
     
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
+
+
+function deleteTask(int $taskId) : int
+{
+    global $pdo;
+    $user_id = getCurrentUserId();
+
+    $query = "DELETE FROM tasks WHERE id = ? AND user_id = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$taskId,$user_id]);
+
+    return $stmt->rowCount();
+}
