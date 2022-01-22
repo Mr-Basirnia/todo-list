@@ -1,6 +1,6 @@
 <?php
 
-include_once 'bootstrap/init.php';
+include 'bootstrap/init.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_GET['action'];
@@ -21,4 +21,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include_once PROJECT_PATH . "views/v-auth.php";
+include PROJECT_PATH . "views/v-auth.php";

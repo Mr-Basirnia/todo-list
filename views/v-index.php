@@ -328,6 +328,46 @@
     <script src="assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+
+            $("#addNewFolder").on('keypress', function(e) {
+
+                var inputValue = $('#addNewFolder').val();
+
+                if (e.which == 13) {
+                    $.ajax({
+                        url: 'process/ajaxHandler.php',
+                        method: 'post',
+                        data: {
+                            action: 'addNewFolder',
+                            folderName: inputValue
+                        },
+                        success: function(response) {
+
+                            var result = jQuery.parseJSON(response);
+
+                            var folderId = result.result;
+
+                            if (result.success) {
+                                $('<div style="display: inline-flex;"> <a href="?folder_id=' +
+                                    folderId +
+                                    '"> <i class="fas fa-folder"></i> ' +
+                                    inputValue +
+                                    ' </a> <a href="?delete_folder=' + folderId +
+                                    '" style="margin-right: auto;"><i class="fas fa-trash" style="margin: 0;"></i></a> </div>'
+                                ).appendTo('.side-menu')
+                            }
+
+                        }
+                    })
+                }
+
+            });
+
+        })
+    </script>
+
 </body>
 
 </html>

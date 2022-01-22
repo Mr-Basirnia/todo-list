@@ -1,9 +1,9 @@
 <?php session_start();
 
-include_once "constants.php";
-include_once PROJECT_PATH . "vendor/autoload.php";
-include_once PROJECT_PATH . "bootstrap/config.php";
-include_once PROJECT_PATH . "bootstrap/helper.php";
+include "constants.php";
+include PROJECT_PATH . "vendor/autoload.php";
+include PROJECT_PATH . "bootstrap/config.php";
+include PROJECT_PATH . "bootstrap/helper.php";
 
 
 try {
@@ -17,5 +17,5 @@ try {
 }
 
 
-include_once PROJECT_PATH . "libs/lib-auth.php";
-include_once PROJECT_PATH . "libs/lib-folder.php";
+include PROJECT_PATH . "libs/lib-auth.php";
+include PROJECT_PATH . "libs/lib-folder.php";

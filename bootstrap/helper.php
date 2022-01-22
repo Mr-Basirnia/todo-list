@@ -36,3 +36,16 @@ function redirect($url)
     header("Location: $url");
     die();
 }
+
+/**
+ * چک میکنه که آیا درخاست بصورت ایجکس هست یا نه
+ *
+ * @return boolean
+ */
+function isAjaxRequest() : bool
+{
+    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        return true;
+    }
+    return false;
+}
