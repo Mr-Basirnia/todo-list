@@ -13,7 +13,7 @@ function getFolders() : array
     $query = "SELECT * FROM folders WHERE user_id = ?";
 
     $stmt = $pdo->prepare($query);
-    $stmt->execute([2]);
+    $stmt->execute([$user_id]);
     
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
