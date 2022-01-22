@@ -37,7 +37,7 @@ function addFolder(string $folderName)
 }
 
 
-function deleteFolder($folderId) : bool
+function deleteFolder($folderId)
 {
     global $pdo;
     $user_id = getCurrentUserId();
