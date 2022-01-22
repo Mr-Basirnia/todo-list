@@ -35,3 +35,16 @@ function addFolder(string $folderName)
 
     return $stmt->rowCount() ? ['success'=>true,'result'=>$pdo->lastInsertId()] : false;
 }
+
+
+function deleteFolder($folderId) : bool
+{
+    global $pdo;
+    $user_id = getCurrentUserId();
+
+    $query = "DELETE FROM folders WHERE id = ? AND user_id = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$folderId,$user_id]);
+
+    return $stmt->rowCount();
+}

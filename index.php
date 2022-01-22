@@ -11,6 +11,10 @@ if (!isLogin()) {
     redirect(siteUrl('auth.php'));
 }
 
+if (isset($_GET['delete_folder']) && is_numeric($_GET['delete_folder'])) {
+    deleteFolder($_GET['delete_folder']);
+}
+
 $user = getLoginUserData();
 $folders = getFolders();
 
