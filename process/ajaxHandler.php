@@ -11,6 +11,16 @@ if (!isset($_POST['action']) || empty($_POST['action'])) {
 
 
 switch ($_POST['action']) {
+
+    case 'changeTaskStatus':
+        $taskId = $_POST['taskId'];
+        if (!isset($taskId) || !is_numeric($taskId)) {
+            echo "آیدی تسک نادرست می باشد";
+            die();
+        }
+        changeTaskStatus($taskId);
+        break;
+
     case 'addNewFolder':
         if (!isset($_POST['folderName']) || strlen($_POST['folderName']) < 3) {
             echo "اسم پوشه باید بزرگتر از 2 کلمه باشد";

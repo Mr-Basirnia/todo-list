@@ -152,7 +152,8 @@
 
                                     <span>وضعیت : </span>
                                     <span
-                                        class="<?= $task->is_done ? 'status-circle green' : 'status-circle' ?>"></span>
+                                        class="<?= $task->is_done ? 'status-circle green' : 'status-circle' ?> task_status"
+                                        data-taskId="<?= $task->id ?>"></span>
 
                                     <div class="menu">
                                         <button class="dropdown">
@@ -253,6 +254,21 @@
 
     <script>
         $(document).ready(function() {
+
+            $('.task_status').click(function(e) {
+                var taskId = $(this).attr('data-taskId');
+                $.ajax({
+                    url: 'process/ajaxHandler.php',
+                    method: 'post',
+                    data: {
+                        action: 'changeTaskStatus',
+                        taskId: taskId
+                    },
+                    success: function(response) {
+                        window.location.reload();
+                    }
+                });
+            });
 
             $("#addNewFolder").on('keypress', function(e) {
 

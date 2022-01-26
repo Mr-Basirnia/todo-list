@@ -38,3 +38,22 @@ function deleteTask(int $taskId) : int
 
     return $stmt->rowCount();
 }
+
+
+/**
+ * change status task
+ *
+ * @param [type] $taskId
+ * @return void
+ */
+function changeTaskStatus($taskId)
+{
+    global $pdo;
+    $user_id = getCurrentUserId();
+
+    $query = "UPDATE tasks SET is_done = 1 - is_done WHERE id = ? AND user_id = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$taskId,$user_id]);
+
+    return $stmt->rowCount();
+}
