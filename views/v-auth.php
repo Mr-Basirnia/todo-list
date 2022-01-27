@@ -1,3 +1,4 @@
+<?php defined('PROJECT_PATH') or die(); ?>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 

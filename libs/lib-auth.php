@@ -1,4 +1,4 @@
-<?php
+<?php defined('PROJECT_PATH') or die();
 
 /**
  * register user

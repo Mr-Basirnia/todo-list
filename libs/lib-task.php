@@ -1,4 +1,4 @@
-<?php
+<?php defined('PROJECT_PATH') or die();
 
 /**
  * get tasks by folder id and without folder id
