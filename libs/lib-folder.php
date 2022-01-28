@@ -1,4 +1,4 @@
-<?php
+<?php defined('PROJECT_PATH') or die();
 
 /**
  * get folder but only logged user folders

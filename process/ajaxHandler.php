@@ -31,6 +31,22 @@ switch ($_POST['action']) {
             echo json_encode($result);
         }
         break;
+
+    case 'addTask':
+
+        $task_name = $_POST['taskName'];
+        $folder_id = $_POST['folderId'];
+
+        if (!isset($folder_id) || empty($folder_id)) {
+            echo "برای افزودن تسک یک پوشه را انتخاب کنید";
+            die();
+        }
+        if (!isset($task_name) || strlen($task_name) < 3) {
+            echo "اسم تسک باید بزرگتر از 2 کلمه باشد";
+            die();
+        }
+        echo addNewTask($task_name, $folder_id);
+        break;
     
     default:
         
