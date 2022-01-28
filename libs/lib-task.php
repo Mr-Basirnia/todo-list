@@ -57,3 +57,16 @@ function changeTaskStatus($taskId)
 
     return $stmt->rowCount();
 }
+
+
+function addNewTask($taskName, $folderId)
+{
+    global $pdo;
+    $user_id = getCurrentUserId();
+
+    $query = "INSERT INTO tasks (user_id,folder_id,title) VALUES (?,?,?)";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$user_id,$folderId,$taskName]);
+
+    return $stmt->rowCount() ? true : false;
+}
